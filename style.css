@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --cream: #FAF6EE;
+  --cream-dark: #F0E9D8;
+  --ink: #1A1208;
+  --ink-light: #3D3221;
+  --coral: #E8613A;
+  --coral-light: #F0855E;
+  --sage: #7A9E7E;
+  --gold: #C9952A;
+  --warm-gray: #8C7E6A;
+  --card-bg: #FFFDF7;
+  --border: rgba(26,18,8,0.12);
+  --radius: 16px;
+  --radius-lg: 24px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ── Doodle SVG background texture ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9952A' stroke-width='0.4' opacity='0.18'%3E%3Ccircle cx='15' cy='15' r='6'/%3E%3Cpath d='M45 10 Q50 15 45 20 Q40 25 45 30'/%3E%3Crect x='5' y='38' width='10' height='10' rx='2' transform='rotate(12 10 43)'/%3E%3Cpath d='M38 42 L42 46 L46 42 L42 38 Z'/%3E%3Cpath d='M22 2 Q26 6 22 10'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Typography ── */
+h1, h2, h3 { font-family: 'Lora', serif; }
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.15; }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 600; line-height: 1.2; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+
+/* ── Layout ── */
+.container {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  padding: 90px 0 40px;
+  position: relative;
+}
+
+/* ── Nav ── */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250,246,238,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+.site-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--ink-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--coral); }
+
+/* ── Section Labels ── */
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--coral);
+  background: rgba(232,97,58,0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 30px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coral), var(--gold));
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(26,18,8,0.1);
+}
+.card:hover::before { opacity: 1; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--coral);
+  color: #fff;
+  border: 2px solid var(--coral);
+}
+.btn-primary:hover {
+  background: var(--coral-light);
+  border-color: var(--coral-light);
+  transform: translateY(-1px);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--coral);
+  border: 2px solid var(--coral);
+}
+.btn-outline:hover {
+  background: var(--coral);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ── Bounce Arrow ── */
+.bounce-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 40px 0 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--warm-gray);
+  transition: color 0.2s;
+}
+.bounce-arrow:hover { color: var(--coral); }
+.bounce-arrow span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+}
+.bounce-arrow svg {
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ── Divider ── */
+.section-divider {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: 0;
+}
+
+/* ── Hand-drawn underline ── */
+.hand-underline {
+  position: relative;
+  display: inline-block;
+}
+.hand-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 6px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 5 Q25 2 50 5 Q75 8 100 4 Q125 1 150 5 Q175 8 198 4' stroke='%23E8613A' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  section { padding: 70px 0 30px; }
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Projects — Abdulhamid Salihu</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .page-hero {
+      padding: 130px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+    .page-hero .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--warm-gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+    .page-hero .back-link:hover { color: var(--coral); }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-bottom: 80px;
+    }
+    .project-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--sage), var(--gold));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .project-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 32px rgba(26,18,8,0.09);
+    }
+    .project-item:hover::before { opacity: 1; }
+    .project-item h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+    .project-item p {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">Abdulhamid Salihu</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#academic">Academic</a></li>
+        <li><a href="../index.html#certificates">Certificates</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <a class="back-link" href="../index.html#projects">
+        <i class="fas fa-arrow-left"></i> Back to all projects
+      </a>
+      <span class="section-label">AWS & Infrastructure</span>
+      <h1 style="margin-bottom:12px;">Cloud Projects</h1>
+      <p style="color:var(--warm-gray);font-size:0.95rem;max-width:560px;margin:0 auto;">
+        Hands-on AWS deployments covering serverless architectures, container orchestration, network design, and observability pipelines.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="projects-list">
+
+      <!-- 1 -->
+      <div class="project-item">
+        <h3>Automating File Type Detection with Amazon S3 Event Triggers and AWS Lambda</h3>
+        <p>Implemented an event-driven architecture where Amazon S3 automatically invokes an AWS Lambda function upon new file uploads, enabling real-time detection and logging of file types. Demonstrates how serverless services can be combined to streamline operational workflows without relying on manual intervention or continuously running infrastructure.</p>
+        <a class="btn btn-outline" href="https://kizerh.notion.site/Automating-File-Type-Detection-with-Amazon-S3-Event-Triggers-and-AWS-Lambda-24fb325e196c80f9b4bfd37844d16fdc" target="_blank" rel="noopener">
+          <i class="fas fa-book-open"></i> Click to read the full documentation
+        </a>
+      </div>
+
+      <!-- 2 -->
+      <div class="project-item">
+        <h3>Domain Management and Secure Content Delivery with AWS Route 53, S3, CloudFront, and ACM</h3>
+        <p>Configured a custom domain with AWS Route 53, deployed a static website on Amazon S3, and delivered it globally through CloudFront with HTTPS enabled via AWS Certificate Manager (ACM) — achieving a production-ready architecture capable of serving secure, high-performance static content through a custom domain.</p>
+        <a class="btn btn-outline" href="https://kizerh.notion.site/Domain-Management-and-Secure-Content-Delivery-with-AWS-Route-53-S3-CloudFront-and-ACM-24fb325e196c80e8a279e8773349de06" target="_blank" rel="noopener">
+          <i class="fas fa-book-open"></i> Click to read the full documentation
+        </a>
+      </div>
+
+      <!-- 3 -->
+      <div class="project-item">
+        <h3>Implementing Monitoring and Logging with Amazon CloudWatch</h3>
+        <p>Deployed a serverless Nginx web server container on Amazon ECS using the Fargate launch type and integrated it with AWS monitoring and logging services. Provisioned a containerized application that can be publicly accessed while streaming performance metrics and logs to Amazon CloudWatch for real-time visibility.</p>
+        <a class="btn btn-outline" href="https://kizerh.notion.site/Implementing-Monitoring-and-Logging-with-Amazon-CloudWatch-24fb325e196c800bbd32c04069e19689" target="_blank" rel="noopener">
+          <i class="fas fa-book-open"></i> Click to read the full documentation
+        </a>
+      </div>
+
+      <!-- 4 -->
+      <div class="project-item">
+        <h3>Configuring ECS Services to Communicate with RDS Databases Securely within a Private VPC</h3>
+        <p>Deployed the open-source analytics tool Metabase on Amazon ECS using the Fargate launch type, securely integrating it with a PostgreSQL database on Amazon RDS. Operated within a controlled VPC environment while exposing the Metabase interface to permitted external users through an Application Load Balancer (ALB), combining containerized delivery with a managed database backend ensuring security, availability, and maintainability.</p>
+        <a class="btn btn-outline" href="https://kizerh.notion.site/Configuring-ECS-Services-to-Communicate-with-RDS-Databases-Securely-within-a-Private-VPC-24fb325e196c80298054f3aeb6fafeda" target="_blank" rel="noopener">
+          <i class="fas fa-book-open"></i> Click to read the full documentation
+        </a>
+      </div>
+
+      <!-- 5 -->
+      <div class="project-item">
+        <h3>Building a Secure and Scalable AWS Network Using VPCs, Subnets, and Routing Controls</h3>
+        <p>Designed and deployed an isolated, multi-VPC network architecture on AWS to enable controlled, secure communication between environments. Simulated a scalable enterprise network topology, leveraging Amazon VPC, subnet segmentation, and VPC peering to ensure efficient routing and traffic separation.</p>
+        <a class="btn btn-outline" href="https://kizerh.notion.site/Building-a-Secure-and-Scalable-AWS-Network-Using-VPCs-Subnets-and-Routing-Controls-24cb325e196c810cba46d5a2440f82c7" target="_blank" rel="noopener">
+          <i class="fas fa-book-open"></i> Click to read the full documentation
+        </a>
+      </div>
+
+      <!-- 6 -->
+      <div class="project-item">
+        <h3>Deploying a Containerized Grafana Application Using Amazon ECS and Fargate</h3>
+        <p>Deployed Grafana, a monitoring and visualization tool, as a fully managed containerized application on AWS using Amazon ECS with the Fargate launch type. Achieved a lightweight, scalable deployment without managing underlying EC2 instances, while adhering to security best practices for controlled access.</p>
+        <a class="btn btn-outline" href="https://kizerh.notion.site/Deploying-a-Containerized-Grafana-Application-Using-Amazon-ECS-and-Fargate-24cb325e196c813783bbfc1835be7042" target="_blank" rel="noopener">
+          <i class="fas fa-book-open"></i> Click to read the full documentation
+        </a>
+      </div>
+
+      <!-- 7 -->
+      <div class="project-item">
+        <h3>Managing Static Content Delivery with Amazon S3 and CloudFront</h3>
+        <p>Designed, deployed, and optimized a personal static website using Amazon S3 for object storage and CloudFront for global content distribution — establishing a reliable, cost-efficient, and high-performance method of delivering static HTML content to a global audience while ensuring scalability and low latency.</p>
+        <a class="btn btn-outline" href="https://kizerh.notion.site/Managing-Static-Content-Delivery-with-Amazon-S3-and-CloudFront-24fb325e196c80ab8296d07fce998afb" target="_blank" rel="noopener">
+          <i class="fas fa-book-open"></i> Click to read the full documentation
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Abdulhamid Salihu &nbsp;·&nbsp;
+        <a href="mailto:abdulhameedi.ah492@gmail.com">abdulhameedi.ah492@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

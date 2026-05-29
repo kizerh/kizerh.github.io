@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools — Abdulhamid Salihu</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .page-hero {
+      padding: 130px 0 60px;
+      text-align: center;
+    }
+    .page-hero .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--warm-gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+    .page-hero .back-link:hover { color: var(--coral); }
+
+    .tools-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-bottom: 80px;
+    }
+    .tool-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 34px 38px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .tool-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--ink-light), var(--warm-gray));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .tool-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 32px rgba(26,18,8,0.09);
+    }
+    .tool-item:hover::before { opacity: 1; }
+
+    .tool-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .tool-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(26,18,8,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--ink-light);
+      flex-shrink: 0;
+    }
+    .tool-title-group h3 {
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .tool-slug {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 0.78rem;
+      color: var(--coral);
+      background: rgba(232,97,58,0.08);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .tool-item p {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+    .tool-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">Abdulhamid Salihu</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#academic">Academic</a></li>
+        <li><a href="../index.html#certificates">Certificates</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <a class="back-link" href="../index.html#projects">
+        <i class="fas fa-arrow-left"></i> Back to all projects
+      </a>
+      <span class="section-label">Open Source</span>
+      <h1 style="margin-bottom:12px;">Tools</h1>
+      <p style="color:var(--warm-gray);font-size:0.95rem;max-width:560px;margin:0 auto;">
+        Open-source security and infrastructure tools built for real-world use — available on GitHub.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="tools-list">
+
+      <!-- gql-finder -->
+      <div class="tool-item">
+        <div class="tool-header">
+          <div class="tool-icon"><i class="fas fa-magnifying-glass"></i></div>
+          <div class="tool-title-group">
+            <h3>GraphQL Endpoint Discovery Tool</h3>
+            <span class="tool-slug">gql-finder</span>
+          </div>
+        </div>
+        <p>A Python-based reconnaissance tool to identify hidden or misconfigured GraphQL endpoints using multi-signal analysis — covering HTTP status codes, content type headers, response similarity scoring, and GraphQL-specific indicators. Implements baseline learning and browser-like redirect handling to reduce false positives and improve detection accuracy in security testing environments.</p>
+        <div class="tool-footer">
+          <a class="btn btn-primary" href="https://github.com/kizerh/gql-finder" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- vulnerable-AD -->
+      <div class="tool-item">
+        <div class="tool-header">
+          <div class="tool-icon"><i class="fas fa-server"></i></div>
+          <div class="tool-title-group">
+            <h3>Hardened Vulnerable Active Directory Deployment Script</h3>
+            <span class="tool-slug">vulnerable-AD</span>
+          </div>
+        </div>
+        <p>Forked from safebuffer's VulnAD project and significantly enhanced to address reliability and realism gaps in the original. Key contributions include: guaranteed minimum vulnerability counts via controlled random ranges; a user-tracking system preventing functions from overwriting each other's configurations; replacement of unroastable Managed Service Accounts with properly Kerberoastable regular user accounts; complete SMB signing remediation covering both client and server configurations with registry persistence; an IT Admins to Domain Admins privilege escalation path via AdminSDHolder for persistent ACL abuse; and automated sensitive share creation with planted data files for exfiltration simulation.</p>
+        <div class="tool-footer">
+          <a class="btn btn-primary" href="https://github.com/kizerh/vulnerable-AD" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Abdulhamid Salihu &nbsp;·&nbsp;
+        <a href="mailto:abdulhameedi.ah492@gmail.com">abdulhameedi.ah492@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

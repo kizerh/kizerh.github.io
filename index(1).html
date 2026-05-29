@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cybersecurity Projects — Abdulhamid Salihu</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .page-hero {
+      padding: 130px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+    .page-hero .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--warm-gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+    }
+    .page-hero .back-link:hover { color: var(--coral); }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-bottom: 80px;
+    }
+    .project-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--coral), var(--gold));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .project-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 32px rgba(26,18,8,0.09);
+    }
+    .project-item:hover::before { opacity: 1; }
+
+    .project-item h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+    .project-item p {
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .nda-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--warm-gray);
+      background: rgba(140,126,106,0.1);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .nda-note {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      font-style: italic;
+    }
+    .nda-note a { color: var(--coral); text-decoration: none; }
+    .nda-note a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">Abdulhamid Salihu</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#academic">Academic</a></li>
+        <li><a href="../index.html#certificates">Certificates</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <a class="back-link" href="../index.html#projects">
+        <i class="fas fa-arrow-left"></i> Back to all projects
+      </a>
+      <span class="section-label">Security Research</span>
+      <h1 style="margin-bottom:12px;">Cybersecurity Projects</h1>
+      <p style="color:var(--warm-gray);font-size:0.95rem;max-width:560px;margin:0 auto;">
+        Penetration testing labs, IAM architecture, exploit research, threat monitoring, and adversarial security assessments.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="projects-list">
+
+      <!-- 1 -->
+      <div class="project-item">
+        <h3>Designing a Secure IAM Architecture with NGINX, OAuth2-Proxy, Redis, Keycloak and Flask</h3>
+        <p>Designed and implemented a centralized IAM architecture using Keycloak, OAuth2 Proxy, NGINX, Redis, and Flask to enforce authentication, authorization, MFA, SSO, and secure session management through OIDC. Configured NGINX as a policy enforcement gateway with rate limiting and identity-aware access control, integrated Redis-backed server-side session storage, and developed a privilege access review automation script to identify and revoke inactive privileged accounts within Keycloak realms.</p>
+        <div class="project-footer">
+          <a class="btn btn-outline" href="https://kizerh.notion.site/Designing-a-Secure-IAM-Architecture-with-NGINX-OAuth2-Proxy-Redis-Keycloak-and-Flask-2cbb325e196c80e4a800c21ece714360" target="_blank" rel="noopener">
+            <i class="fas fa-book-open"></i> Click to read the full documentation
+          </a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="project-item">
+        <h3>Enterprise Active Directory Deployment and Red Team Exercise: Full Attack Chain Emulation from OSINT to Domain Compromise</h3>
+        <p>Deployed and configured an Active Directory environment then executed a full-scope red team engagement progressing from OSINT reconnaissance and password spraying through Kerberoasting, ACL abuse, and DCSync to achieve complete domain compromise across seven attack phases.</p>
+        <div class="project-footer">
+          <span class="nda-badge"><i class="fas fa-lock"></i> NDA Protected</span>
+          <span class="nda-note">Full documentation of this project is protected by an NDA. Contact <a href="https://expadox.com" target="_blank" rel="noopener">expadox.com</a> for more details and confirmation.</span>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="project-item">
+        <h3>Engineering and Exploitation of a Local LLM-Powered RAG Architecture: Simulating and Mitigating Prompt Injection and Data Exfiltration Vulnerabilities</h3>
+        <p>Architected and deployed a fully local, cost-free LLM-powered Retrieval-Augmented Generation system using LangChain, Ollama, and Phi-3 Mini, simulating a public-facing AI application with tiered document access. Conducted structured adversarial testing across ten attack scenarios spanning prompt injection, data exfiltration, and jailbreak techniques. Engineered and verified a three-layer Python-based defense system comprising input validation, regex prompt filtering, and context isolation.</p>
+        <div class="project-footer">
+          <span class="nda-badge"><i class="fas fa-lock"></i> NDA Protected</span>
+          <span class="nda-note">Full documentation of this project is protected by an NDA. Contact <a href="https://expadox.com" target="_blank" rel="noopener">expadox.com</a> for more details and confirmation.</span>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="project-item">
+        <h3>API Security Assessment and Vulnerability Testing Using OWASP crAPI and the OWASP API Security Top 10 Framework</h3>
+        <p>Conducted a comprehensive offensive security assessment of a deliberately vulnerable REST API application, methodically identifying and exploiting vulnerabilities across all ten OWASP API Security Top 10 categories including Broken Object Level Authorization, Broken Authentication, SQL and NoSQL Injection, Server Side Request Forgery, and Remote Code Execution chains. Utilized Burp Suite, jwt_tool, sqlmap, and FFUF. Produced a full security assessment report mapping every vulnerability to its corresponding OWASP category.</p>
+        <div class="project-footer">
+          <span class="nda-badge"><i class="fas fa-lock"></i> NDA Protected</span>
+          <span class="nda-note">Full documentation of this project is protected by an NDA. Contact <a href="https://expadox.com" target="_blank" rel="noopener">expadox.com</a> for more details and confirmation.</span>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="project-item">
+        <h3>Design and Deployment of a Passwordless Authentication Infrastructure: FIDO2, WebAuthn, and Zero-Trust Access Control with Keycloak and OpenLDAP</h3>
+        <p>Engineered a self-hosted enterprise authentication system using Keycloak, OpenLDAP, and WebAuthn, replacing password-based login with hardware-bound FIDO2 credentials via Windows Hello. Implemented adaptive authentication with IP-based network trust policies, OAuth2 token introspection for real-time session validation, and refresh token rotation for concurrent session theft detection. Validated the infrastructure against credential phishing and session hijacking attack scenarios.</p>
+        <div class="project-footer">
+          <span class="nda-badge"><i class="fas fa-lock"></i> NDA Protected</span>
+          <span class="nda-note">Full documentation of this project is protected by an NDA. Contact <a href="https://expadox.com" target="_blank" rel="noopener">expadox.com</a> for more details and confirmation.</span>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="project-item">
+        <h3>Enterprise Identity &amp; Access Management (IAM) Infrastructure Deployment with FreeIPA, Keycloak, ELK Stack across OIDC and SAML apps</h3>
+        <p>Architected a production-grade IAM infrastructure using Keycloak and FreeIPA, implementing federated Single Sign-On across OAuth2/OIDC and SAML 2.0 protocols with MFA enforcement. Engineered secure authentication pipelines with session management policies, token lifecycle controls, and backchannel logout propagation. Validated the security posture through simulated adversarial attack scenarios including brute force, token replay, and session hijacking, with centralized threat visibility via an ELK Stack pipeline.</p>
+        <div class="project-footer">
+          <span class="nda-badge"><i class="fas fa-lock"></i> NDA Protected</span>
+          <span class="nda-note">Full documentation of this project is protected by an NDA. Contact <a href="https://expadox.com" target="_blank" rel="noopener">expadox.com</a> for more details and confirmation.</span>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="project-item">
+        <h3>Exploiting GraphQL: A Full-Spectrum Security Assessment Covering Introspection, Injection, and Resolver Weaknesses</h3>
+        <p>Conducted a comprehensive security assessment of the Damn Vulnerable GraphQL Application (DVGA), performing endpoint reconnaissance, schema enumeration, and exploitation of multiple GraphQL vulnerabilities including SQL Injection, Stored XSS, SSRF, command injection, denial of service attacks, path traversal, arbitrary file write, and authentication weaknesses. Used Burp Suite, sqlmap, ffuf, GraphQL Voyager, graphwOOf, and a custom-built GraphQL reconnaissance tool.</p>
+        <div class="project-footer">
+          <a class="btn btn-outline" href="https://kizerh.notion.site/Exploiting-GraphQL-A-Full-Spectrum-Security-Assessment-Covering-Introspection-Injection-and-Resol-317b325e196c809e926ad47544720c94" target="_blank" rel="noopener">
+            <i class="fas fa-book-open"></i> Click to read the full documentation
+          </a>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="project-item">
+        <h3>Multi-Stage Web Exploitation Leading to Full System Compromise and Privilege Dominance</h3>
+        <p>Conducted a full-spectrum web application and host exploitation assessment against a vulnerable WordPress environment, progressing from reconnaissance and credential compromise to privilege escalation, remote code execution, lateral movement, and root-level system compromise through misconfigured cron jobs and insecure file permissions. Used Nmap, WPScan, Burp Suite, LinPEAS, and PsPy.</p>
+        <div class="project-footer">
+          <a class="btn btn-outline" href="https://kizerh.notion.site/Multi-Stage-Web-Exploitation-Leading-to-Full-System-Compromise-and-Privilege-Dominance-29cb325e196c80e39cbedf93e5b23132" target="_blank" rel="noopener">
+            <i class="fas fa-book-open"></i> Click to read the full documentation
+          </a>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="project-item">
+        <h3>Advanced Template Injection Lifecycle: From Input Vector Discovery to Command Execution and Post-Exploit Enumeration</h3>
+        <p>Exploited CVE-2024-22722, a Server-Side Template Injection (SSTI) vulnerability in Form Tools 3.1.1, by identifying insecure Smarty template rendering, achieving arbitrary command execution, and deploying a reverse shell to gain remote access to the target system. Demonstrated practical exploitation of insecure templating engines, payload crafting, and post-exploitation access techniques in a controlled environment.</p>
+        <div class="project-footer">
+          <a class="btn btn-outline" href="https://kizerh.notion.site/Advanced-Template-Injection-Lifecycle-From-Input-Vector-Discovery-to-Command-Execution-and-Post-Expl-288b325e196c803fba21ef91054be67e" target="_blank" rel="noopener">
+            <i class="fas fa-book-open"></i> Click to read the full documentation
+          </a>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="project-item">
+        <h3>Holistic Injection Exploit Report: Mapping Vulnerable Input Points to Account Takeover and Comprehensive Data Exposure</h3>
+        <p>Conducted a comprehensive SQL Injection assessment against OWASP Juice Shop, successfully bypassing authentication controls, impersonating privileged users, and exploiting vulnerable search functionality to enumerate the underlying SQLite database structure. Demonstrated manual SQLi exploitation including UNION-based enumeration, authentication bypass, and schema extraction using Burp Suite and custom payload manipulation.</p>
+        <div class="project-footer">
+          <a class="btn btn-outline" href="https://kizerh.notion.site/Holistic-Injection-Exploit-Report-Mapping-Vulnerable-Input-Points-to-Account-Takeover-and-Comprehens-287b325e196c801cae3ae3b9ec0426c8" target="_blank" rel="noopener">
+            <i class="fas fa-book-open"></i> Click to read the full documentation
+          </a>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="project-item">
+        <h3>Comprehensive Cross-Site Scripting Assessment: From Reflective Payloads to Persistent Exploits</h3>
+        <p>Conducted a web application security assessment to exploit Reflective and Stored Cross-Site Scripting (XSS) vulnerabilities across multiple security levels. Analyzed insecure PHP filtering mechanisms, bypassed input sanitization using crafted payloads, and demonstrated attack scenarios including iframe injection and session cookie theft.</p>
+        <div class="project-footer">
+          <a class="btn btn-outline" href="https://kizerh.notion.site/Comprehensive-Cross-Site-Scripting-Assessment-From-Reflective-Payloads-to-Persistent-Exploits-and-Pr-258b325e196c80e0a8a1e6fdd7dfffda" target="_blank" rel="noopener">
+            <i class="fas fa-book-open"></i> Click to read the full documentation
+          </a>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="project-item">
+        <h3>Finedge Unified Threat Monitoring Architecture: On-Premise and Cloud Integration</h3>
+        <p>Designed and implemented a centralized threat detection and monitoring architecture for a fintech infrastructure spanning on-premise Ubuntu servers and AWS cloud workloads. Integrated Wazuh agents, Suricata network intrusion detection, AWS CloudTrail log ingestion, and File Integrity Monitoring to detect brute-force attacks, SQL injection attempts, reconnaissance activity, malicious network traffic, and unauthorized file modifications in real time.</p>
+        <div class="project-footer">
+          <a class="btn btn-outline" href="https://kizerh.notion.site/Finedge-Unified-Threat-Monitoring-Architecture-On-Premise-and-Cloud-Integration-with-Wazuh-Suricat-2a9b325e196c8009b4c4ef54222b596b" target="_blank" rel="noopener">
+            <i class="fas fa-book-open"></i> Click to read the full documentation
+          </a>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="project-item">
+        <h3>Automated Malware Detection &amp; Removal: Wazuh-VirusTotal Integration for Active Response</h3>
+        <p>Built an automated malware triage and remediation pipeline by integrating Wazuh File Integrity Monitoring with VirusTotal threat intelligence services. Configured automated hash lookups, malicious file detection, and Active Response actions to identify and remove suspicious files from monitored endpoints while generating centralized alerts for incident visibility and response coordination.</p>
+        <div class="project-footer">
+          <a class="btn btn-outline" href="https://kizerh.notion.site/Automated-Malware-Detection-Removal-Wazuh-VirusTotal-Integration-for-Active-Response-2b9b325e196c80c1bf9bd31e142cd511" target="_blank" rel="noopener">
+            <i class="fas fa-book-open"></i> Click to read the full documentation
+          </a>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="project-item">
+        <h3>Wazuh-Based Malware Defense Engineering: XWorm Behavior Monitoring, Hash Intelligence, and Automated Active Response</h3>
+        <p>Engineered a Windows-based malware detection and automated response workflow using Wazuh, Sysmon, custom detection rules, CDB hash lists, and Active Response modules to identify and remove simulated XWorm RAT activity. Developed custom telemetry correlation logic for obfuscated PowerShell execution, persistence mechanisms, malicious file creation, and network beaconing, enabling real-time detection and automated remediation of malware artifacts.</p>
+        <div class="project-footer">
+          <a class="btn btn-outline" href="https://kizerh.notion.site/Wazuh-Based-Malware-Defense-Engineering-XWorm-Behavior-Monitoring-Hash-Intelligence-and-Automated-2b9b325e196c80098d14c453a761eed4" target="_blank" rel="noopener">
+            <i class="fas fa-book-open"></i> Click to read the full documentation
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Abdulhamid Salihu &nbsp;·&nbsp;
+        <a href="mailto:abdulhameedi.ah492@gmail.com">abdulhameedi.ah492@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
