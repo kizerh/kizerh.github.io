@@ -54,16 +54,31 @@
 
     .hero-name {
       margin-bottom: 10px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.2s ease forwards;
+      min-height: 1.2em;
     }
+    /* typewriter cursor blink */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 3px;
+      background: var(--coral);
+      margin-left: 2px;
+      animation: blink 0.75s step-end infinite;
+      vertical-align: baseline;
+      height: 0.85em;
+      border-radius: 2px;
+      position: relative;
+      top: 0.05em;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
     .hero-tagline {
       font-size: 1.1rem;
       color: var(--warm-gray);
       margin-bottom: 30px;
       opacity: 0;
-      animation: fadeUp 0.8s 0.4s ease forwards;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
+    .hero-tagline.visible { opacity: 1; transform: translateY(0); }
     .hero-tagline strong { color: var(--coral); font-weight: 600; }
 
     @keyframes fadeUp {
@@ -78,8 +93,10 @@
       justify-content: center;
       margin-bottom: 28px;
       opacity: 0;
-      animation: fadeUp 0.8s 0.6s ease forwards;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
     }
+    .hero-contacts.visible { opacity: 1; transform: translateY(0); }
     .contact-pill {
       display: inline-flex;
       align-items: center;
@@ -144,18 +161,17 @@
       border-color: var(--coral);
     }
     .category-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
+      width: 68px;
+      height: 68px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
+      transition: transform 0.3s ease;
     }
-    .icon-cyber  { background: rgba(232,97,58,0.1);  color: var(--coral); }
-    .icon-cloud  { background: rgba(122,158,126,0.12); color: var(--sage); }
-    .icon-ai     { background: rgba(201,149,42,0.12);  color: var(--gold); }
-    .icon-tools  { background: rgba(26,18,8,0.07);    color: var(--ink-light); }
+    .project-category-card:hover .category-icon {
+      transform: rotate(-6deg) scale(1.1);
+    }
+    .category-icon svg { width: 100%; height: 100%; }
 
     .project-category-card h3 {
       font-size: 1.1rem;
@@ -356,9 +372,7 @@
         <img class="hero-avatar" src="picture.jpg" alt="Abdulhamid Salihu" />
       </div>
 
-      <h1 class="hero-name">
-        Hi, I'm <span class="hand-underline">Abdulhamid</span>
-      </h1>
+      <h1 class="hero-name" id="heroName"><span class="typewriter-cursor" id="twCursor"></span></h1>
       <p class="hero-tagline">
         <strong>Cybersecurity</strong> &nbsp;·&nbsp; <strong>Cloud</strong> &nbsp;·&nbsp; <strong>AI & Prompt Engineering</strong>
       </p>
@@ -405,28 +419,63 @@
 
       <div class="projects-grid">
         <a class="project-category-card" href="cybersecurity-projects/index.html">
-          <div class="category-icon icon-cyber"><i class="fas fa-shield-halved"></i></div>
+          <div class="category-icon">
+            <!-- hand-drawn shield doodle -->
+            <svg viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M34 8 C34 8 16 14 14 16 C12 18 13 34 16 42 C19 50 28 57 34 60 C40 57 49 50 52 42 C55 34 56 18 54 16 C52 14 34 8 34 8Z" stroke="#E8613A" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M26 34 L31 39 L43 27" stroke="#E8613A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 20 Q20 18 22 19" stroke="#E8613A" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
           <h3>Cybersecurity</h3>
           <p>Penetration testing, IAM architecture, malware detection, and exploit research.</p>
           <span class="category-arrow">Explore projects →</span>
         </a>
 
         <a class="project-category-card" href="cloud-projects/index.html">
-          <div class="category-icon icon-cloud"><i class="fas fa-cloud"></i></div>
+          <div class="category-icon">
+            <!-- hand-drawn cloud doodle -->
+            <svg viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 44 C12 44 10 38 14 34 C14 28 19 24 25 25 C27 19 33 15 40 17 C47 19 51 26 49 33 C53 33 56 37 54 41 C52 45 47 46 43 45 L20 45 Z" stroke="#7A9E7E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M28 52 L28 46" stroke="#7A9E7E" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M34 55 L34 46" stroke="#7A9E7E" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M40 52 L40 46" stroke="#7A9E7E" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M14 30 Q12 28 14 26" stroke="#7A9E7E" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
           <h3>Cloud</h3>
           <p>AWS deployments, serverless architectures, VPC design, and monitoring pipelines.</p>
           <span class="category-arrow">Explore projects →</span>
         </a>
 
         <a class="project-category-card" href="prompt-engineering/index.html">
-          <div class="category-icon icon-ai"><i class="fas fa-brain"></i></div>
+          <div class="category-icon">
+            <!-- hand-drawn brain/sparkle doodle -->
+            <svg viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M34 14 C28 14 22 19 22 26 C22 30 24 33 22 36 C20 39 17 40 18 44 C19 48 23 50 27 49 C27 52 30 54 34 54 C38 54 41 52 41 49 C45 50 49 48 50 44 C51 40 48 39 46 36 C44 33 46 30 46 26 C46 19 40 14 34 14Z" stroke="#C9952A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M34 14 L34 20" stroke="#C9952A" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M28 32 Q34 28 40 32" stroke="#C9952A" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <circle cx="29" cy="38" r="2" stroke="#C9952A" stroke-width="1.3" fill="none"/>
+              <circle cx="39" cy="38" r="2" stroke="#C9952A" stroke-width="1.3" fill="none"/>
+              <path d="M56 18 L57 14 L58 18 L62 19 L58 20 L57 24 L56 20 L52 19 Z" stroke="#C9952A" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+              <path d="M10 48 L11 45 L12 48 L15 49 L12 50 L11 53 L10 50 L7 49 Z" stroke="#C9952A" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <h3>AI & Prompt Engineering</h3>
           <p>Custom prompts, LLM workflows, and adversarial AI security research.</p>
           <span class="category-arrow">Explore projects →</span>
         </a>
 
         <a class="project-category-card" href="tools/index.html">
-          <div class="category-icon icon-tools"><i class="fas fa-wrench"></i></div>
+          <div class="category-icon">
+            <!-- hand-drawn tools/wrench doodle -->
+            <svg viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M44 12 C38 12 33 17 33 23 C33 25 34 27 34 27 L16 45 C14 47 14 50 16 52 C18 54 21 54 23 52 L41 34 C41 34 43 35 45 35 C51 35 56 30 56 24 C56 22 55 20 54 18 L48 24 L44 20 L50 14 C48 13 46 12 44 12Z" stroke="#3D3221" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="19" cy="49" r="2" stroke="#3D3221" stroke-width="1.3" fill="none"/>
+              <path d="M28 20 L24 16" stroke="#3D3221" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+              <path d="M54 42 L50 46 L54 50 L58 46 Z" stroke="#3D3221" stroke-width="1.3" fill="none" stroke-linejoin="round" opacity="0.5"/>
+            </svg>
+          </div>
           <h3>Tools</h3>
           <p>Open-source security and infrastructure tools built for real-world use.</p>
           <span class="category-arrow">Explore tools →</span>
@@ -546,6 +595,78 @@
       </p>
     </div>
   </footer>
+
+  <!-- ───── TYPEWRITER SCRIPT ───── -->
+  <script>
+    (function () {
+      const el     = document.getElementById('heroName');
+      const cursor = document.getElementById('twCursor');
+
+      // Two-phase text: phase 1 = "Hi", pause, phase 2 = ", I'm Abdulhamid"
+      const phase1 = "Hi";
+      const phase2 = ", I'm Abdulhamid";
+      const SPEED        = 72;   // ms per character
+      const PAUSE_AFTER1 = 520;  // pause after "Hi" before continuing
+      const CURSOR_LINGER = 1400; // how long cursor stays after finish
+
+      let textNode = document.createTextNode('');
+      // Insert text node BEFORE the cursor span
+      el.insertBefore(textNode, cursor);
+
+      function typeChars(str, done) {
+        let i = 0;
+        function next() {
+          if (i < str.length) {
+            textNode.nodeValue += str[i++];
+            setTimeout(next, SPEED + Math.random() * 28); // tiny jitter for realism
+          } else {
+            done && done();
+          }
+        }
+        next();
+      }
+
+      // After the full name is typed, add the hand-underline span around "Abdulhamid"
+      function wrapUnderline() {
+        const full = textNode.nodeValue; // "Hi, I'm Abdulhamid"
+        const idx  = full.indexOf('Abdulhamid');
+        if (idx === -1) return;
+
+        const before = full.slice(0, idx);          // "Hi, I'm "
+        const name   = full.slice(idx);             // "Abdulhamid"
+
+        // Replace plain text node with: textBefore + <span> + cursor
+        textNode.nodeValue = before;
+
+        const span = document.createElement('span');
+        span.className = 'hand-underline';
+        span.textContent = name;
+        el.insertBefore(span, cursor);
+      }
+
+      // Kick off after a short initial delay (avatar fade-in feels better first)
+      setTimeout(function () {
+        typeChars(phase1, function () {
+          setTimeout(function () {
+            typeChars(phase2, function () {
+              // Wrap "Abdulhamid" in underline span
+              setTimeout(function () {
+                wrapUnderline();
+                // Reveal tagline and contacts
+                document.querySelector('.hero-tagline').classList.add('visible');
+                document.querySelector('.hero-contacts').classList.add('visible');
+                // Remove cursor after linger
+                setTimeout(function () {
+                  cursor.style.animation = 'none';
+                  cursor.style.opacity   = '0';
+                }, CURSOR_LINGER);
+              }, 80);
+            });
+          }, PAUSE_AFTER1);
+        });
+      }, 600);
+    })();
+  </script>
 
 </body>
 </html>
