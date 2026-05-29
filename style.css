@@ -175,15 +175,17 @@ section {
 
 /* ── Bounce Arrow ── */
 .bounce-arrow {
+  margin-top: 85px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 0px;
   padding: 40px 0 20px;
   cursor: pointer;
   text-decoration: none;
   color: var(--warm-gray);
   transition: color 0.2s;
+  animation: bounce 2s ease-in-out infinite;
 }
 .bounce-arrow:hover { color: var(--coral); }
 .bounce-arrow span {
@@ -193,9 +195,9 @@ section {
   text-transform: uppercase;
   font-family: 'DM Sans', sans-serif;
 }
-.bounce-arrow svg {
+/*.bounce-arrow svg {
   animation: bounce 2s ease-in-out infinite;
-}
+}*/
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
